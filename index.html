@@ -34,13 +34,14 @@
   <nav class="sticky top-0 z-50 bg-daowhite/90 backdrop-blur border-b border-stone-200">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <!-- 徽标 -->
-       <!-- 替换后的 Logo 图片代码 -->
-<img 
-  src="三清宫logo.png" 
-  alt="三清宫道教学院徽标" 
-  class="w-10 h-10 object-contain rounded"
-/>
+        <!-- 徽标：内嵌式太极矢量图（100% 稳定显示） -->
+        <svg class="w-10 h-10 text-daogreen shrink-0" viewBox="0 0 100 100" fill="currentColor">
+          <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" stroke-width="4"/>
+          <path d="M50 2 A48 48 0 0 1 50 98 A24 24 0 0 1 50 50 A24 24 0 0 0 50 2 Z" fill="currentColor"/>
+          <circle cx="50" cy="26" r="6" fill="#FAF8F5"/>
+          <circle cx="50" cy="74" r="6" fill="currentColor"/>
+        </svg>
+        <div class="leading-tight">
           <span class="block font-bold text-lg text-daodark tracking-wider">三清宫道教学院</span>
           <span class="block text-xs text-stone-500 font-sans tracking-widest">SANQING TAOIST ACADEMY</span>
         </div>
@@ -75,16 +76,20 @@
     </div>
   </nav>
 
-  <!-- 2. 首屏视觉区 (Hero Section) - 间隙加大且视觉对齐 -->
+  <!-- 2. 首屏视觉区 (Hero Section) - 间距加大与居中对齐 -->
   <header class="relative py-28 md:py-36 px-6 border-b border-stone-200 overflow-hidden bg-gradient-to-b from-stone-100 to-daowhite">
     <div class="max-w-4xl mx-auto text-center">
       <p class="text-xs uppercase tracking-[0.35em] text-stone-500 mb-6 font-sans">Ancient Wisdom · Modern Education</p>
       
-      <!-- 主标题：加大上下行距与字距，视觉对称对齐 -->
-     <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-daodark mb-10 flex flex-col space-y-4 items-center tracking-[0.25em] mr-[-0.25em]">
-  <span>融汇道家深邃智慧</span>
-  <span class="text-daogreen">构筑清修研习道场</span>
-</h1>
+      <!-- 主标题：加大上下行距与字距，开阔宁静 -->
+      <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-daodark mb-12 flex flex-col space-y-5 items-center">
+        <span class="block tracking-[0.25em] mr-[-0.25em]">
+          融汇道家深邃智慧
+        </span>
+        <span class="block text-daogreen tracking-[0.16em] mr-[-0.16em]">
+          构筑身心清静与学术研习之所
+        </span>
+      </h1>
 
       <p class="text-base md:text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto mb-10 font-light">
         我们将千载哲学传统引入当代教育语境。在修身养性的宁静环境中，开展系统严谨的学术探究，感悟道法自然与内在天地之谐。
@@ -100,18 +105,17 @@
     </div>
   </header>
 
-  <!-- 3. 核心愿景与关于我们 (About & Mission) -->
- <!-- 3. 核心愿景与关于学院 (中正对称雅致排版) -->
+  <!-- 3. 核心愿景与关于我们 (全新升级：中正对称美学卡片) -->
   <section id="about" class="py-24 px-6 max-w-5xl mx-auto">
-    <!-- 顶部居中标题与宗风 -->
+    <!-- 顶部居中标题 -->
     <div class="text-center max-w-2xl mx-auto mb-14">
-      <span class="text-xs tracking-[0.3em] text-daogold uppercase font-sans font-semibold">About & Mission</span>
-      <h2 class="text-2xl md:text-4xl font-bold text-daodark mt-3 tracking-wide">探寻自我与宇宙的深层共鸣</h2>
+      <span class="text-xs tracking-widest text-stone-500 uppercase font-sans">About & Mission</span>
+      <h2 class="text-2xl md:text-4xl font-bold text-daodark mt-2">探寻自我与宇宙的深层共鸣</h2>
       <div class="w-12 h-0.5 bg-daogreen mx-auto my-5"></div>
-      <p class="text-xs md:text-sm text-stone-500 tracking-[0.3em] font-sans">学术立院 · 修身明理 · 观复返真</p>
+      <p class="text-xs md:text-sm text-daogold tracking-[0.25em] font-sans">学术立院 · 修身明理 · 观复返真</p>
     </div>
 
-    <!-- 居中美学卡片 -->
+    <!-- 居中美学质感卡片 -->
     <div class="max-w-3xl mx-auto bg-white border border-stone-200/90 rounded-3xl p-8 md:p-14 shadow-sm text-center space-y-8 text-stone-700">
       <p class="text-lg md:text-xl font-medium text-daodark leading-relaxed">
         我们致力于弘扬道教开创的智慧，将古老的哲学传统与现代教育深度结合。
@@ -123,25 +127,11 @@
         无论您是在求索形而上的生命哲思，还是探寻安顿身心的实际路径，我们真诚地邀请您加入，共同踏上这段充满智慧、明达与清静的修学之旅。
       </p>
       
-      <!-- 底部三修特色徽章 -->
-      <div class="pt-8 border-t border-stone-100 flex flex-wrap justify-center gap-4 text-xs font-sans text-stone-600">
-        <span class="px-5 py-2 bg-stone-50 rounded-full border border-stone-200/80 tracking-wider">🌿 修身养性</span>
-        <span class="px-5 py-2 bg-stone-50 rounded-full border border-stone-200/80 tracking-wider">📖 经典义理</span>
-        <span class="px-5 py-2 bg-stone-50 rounded-full border border-stone-200/80 tracking-wider">✨ 天人和谐</span>
-      </div>
-    </div>
-  </section>
-      </div>
-      <div class="md:col-span-7 space-y-6 text-stone-700 text-base md:text-lg leading-relaxed">
-        <p>
-          我们致力于弘扬道教开创的智慧，将古老的哲学传统与现代教育深度结合。
-        </p>
-        <p class="text-stone-600 font-light">
-          三清宫道教学院依托清幽宁静的道场环境，不仅营造了一处隔绝喧嚣、调摄身心的宁静境地，更建立起系统严谨的学术研习机制，辅助学子体悟“道法自然”与内心澄明的真谛。
-        </p>
-        <p class="text-stone-600 font-light">
-          无论您是在求索形而上的生命哲思，还是探寻安顿身心的实际路径，我们真诚地邀请您加入，共同踏上这段充满智慧、明达与清静的修学之旅。
-        </p>
+      <!-- 底部特色徽章标签 -->
+      <div class="pt-6 border-t border-stone-100 flex flex-wrap justify-center gap-4 text-xs font-sans text-stone-600">
+        <span class="px-4 py-2 bg-stone-50 rounded-full border border-stone-200">🌿 修身养性</span>
+        <span class="px-4 py-2 bg-stone-50 rounded-full border border-stone-200">📖 经典义理</span>
+        <span class="px-4 py-2 bg-stone-50 rounded-full border border-stone-200">✨ 天人和谐</span>
       </div>
     </div>
   </section>
@@ -185,18 +175,17 @@
     </div>
   </section>
 
-  <!-- 5. 课程与研习模块 (Programs) -->
+  <!-- 5. 课程与研习模块 (全新优化：标题居中对齐) -->
   <section id="programs" class="py-24 px-6 max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-      <div>
-        <span class="text-xs tracking-widest text-stone-500 uppercase font-sans">Curriculum</span>
-        <h3 class="text-2xl md:text-3xl font-bold text-daodark mt-2">学程设置</h3>
-      </div>
-      <p class="text-stone-500 text-sm mt-3 md:mt-0 font-sans">理论研索与修身实证兼具的渐进体系</p>
+    <div class="text-center max-w-xl mx-auto mb-16">
+      <span class="text-xs tracking-widest text-stone-500 uppercase font-sans">Curriculum</span>
+      <h3 class="text-2xl md:text-3xl font-bold text-daodark mt-2">学程设置</h3>
+      <div class="w-10 h-0.5 bg-daogreen mx-auto my-4"></div>
+      <p class="text-stone-500 text-sm font-sans">理论研索与修身实证兼具的渐进体系</p>
     </div>
 
     <div class="grid md:grid-cols-2 gap-8">
-      <div class="p-8 border border-stone-200 rounded-xl flex flex-col justify-between hover:shadow-sm transition">
+      <div class="p-8 border border-stone-200 rounded-2xl bg-white flex flex-col justify-between hover:shadow-sm transition">
         <div>
           <span class="text-xs font-sans tracking-wider px-2.5 py-1 bg-stone-100 text-stone-600 rounded">学术研习 · 6个月</span>
           <h4 class="text-xl font-bold text-daodark mt-4 mb-3">早期道家义理与现代思辨</h4>
@@ -209,7 +198,7 @@
         </a>
       </div>
 
-      <div class="p-8 border border-stone-200 rounded-xl flex flex-col justify-between hover:shadow-sm transition">
+      <div class="p-8 border border-stone-200 rounded-2xl bg-white flex flex-col justify-between hover:shadow-sm transition">
         <div>
           <span class="text-xs font-sans tracking-wider px-2.5 py-1 bg-stone-100 text-stone-600 rounded">身心静修 · 7天驻修</span>
           <h4 class="text-xl font-bold text-daodark mt-4 mb-3">止息观照与山居修持工坊</h4>
@@ -224,7 +213,7 @@
     </div>
   </section>
 
-  <!-- 6. 学院风貌与修习环境 (已去除 01/02 标号) -->
+  <!-- 6. 学院风貌与修习环境 (Gallery) -->
   <section id="gallery" class="py-24 bg-stone-100/60 border-t border-stone-200 px-6">
     <div class="max-w-7xl mx-auto">
       <div class="text-center max-w-xl mx-auto mb-16">
@@ -238,12 +227,12 @@
         <!-- 照片卡片 1 -->
         <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
           <img 
-            src="研修功坊3.jpg" 
+            src="pic1.jpg" 
             alt="静修精舍" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-           
+            <span class="text-xs text-daogold font-sans tracking-widest uppercase">静修精舍</span>
             <h4 class="text-lg font-bold mt-1">晨昏调息 · 观心之所</h4>
             <p class="text-xs text-stone-300 font-light mt-1">隔绝尘嚣，静坐止息的修心空间</p>
           </div>
@@ -252,12 +241,12 @@
         <!-- 照片卡片 2 -->
         <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
           <img 
-            src="藏经书阁.jpg" 
+            src="pic2.jpg" 
             alt="藏经书阁" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-           
+            <span class="text-xs text-daogold font-sans tracking-widest uppercase">藏经书阁</span>
             <h4 class="text-lg font-bold mt-1">义理研索 · 典籍宝库</h4>
             <p class="text-xs text-stone-300 font-light mt-1">汇聚诸子经典与现代学术专著</p>
           </div>
@@ -266,12 +255,12 @@
         <!-- 照片卡片 3 -->
         <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
           <img 
-            src="山水胜境.jpg" 
+            src="pic3.jpg" 
             alt="山水胜境" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-           
+            <span class="text-xs text-daogold font-sans tracking-widest uppercase">山水胜境</span>
             <h4 class="text-lg font-bold mt-1">自然步道 · 经行采气</h4>
             <p class="text-xs text-stone-300 font-light mt-1">漫行于山壑流泉之间，融入天地生机</p>
           </div>
@@ -280,12 +269,12 @@
         <!-- 照片卡片 4 -->
         <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
           <img 
-            src="研修功坊4.jpg" 
-            alt="研修功坊" 
+            src="pic4.jpg" 
+            alt="琴茶工坊" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
           />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-           
+            <span class="text-xs text-daogold font-sans tracking-widest uppercase">琴茶工坊</span>
             <h4 class="text-lg font-bold mt-1">烹茶论道 · 适性逍遥</h4>
             <p class="text-xs text-stone-300 font-light mt-1">于一盏清茗中体味素朴平常心</p>
           </div>
