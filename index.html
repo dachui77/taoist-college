@@ -33,7 +33,21 @@
       font-weight: normal;
       line-height: 1.4;
     }
-
+/* 全局水印樣式 */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      /* 請將 watermark.png 替換為您實際上傳的水印圖片檔名 */
+      background-image: url('山水胜境.jpg'); 
+      background-repeat: repeat; /* 默認為平鋪。如果是一張大圖想單張鋪滿全螢幕，請改為：background-size: cover; background-position: center; */
+      opacity: 0.08; /* 水印透明度（0.01 至 1），數值越小越清淡 */
+      z-index: 9999; /* 確保水印覆蓋在頁面最上層 */
+      pointer-events: none; /* 【關鍵】確保水印不會阻擋下方按鈕和鏈接的點擊 */
+    }
     /* 導航欄樣式 */
     header {
       position: sticky; top: 0; 
