@@ -64,11 +64,19 @@
       color: var(--primary-color);
     }
     /* 专门控制中文标题：加大字号，拉开字间距 */
+   /* .logo > div {
+      font-size: 2.2rem; 
+      font-weight: bold;
+      letter-spacing: 7px; 
+      line-height: 1.1;
+    }   为了将标题文字由左对齐变成居中对其*/
+    /* 控制中文標題與英文標識：改為居中對齊 */
     .logo > div {
       font-size: 2.2rem; 
       font-weight: bold;
       letter-spacing: 7px; 
       line-height: 1.1;
+      text-align: center; /* 將文字改為居中對齊 */
     }
     /* 专门控制英文标识：字间距归零，调整比例完美对齐中文 */
     .logo .en-text {
@@ -153,7 +161,7 @@
       /*覆盖上方代码，使logo与文字同行*/
       .logo { flex-direction: row; justify-content: center; gap: 10px; }
       .logo-img { height: 45px; } /* 縮小圖片以適應單行顯示 */
-      .logo > div { font-size: 1.3rem; letter-spacing: 2px; line-height: 1.2; text-align: left; }
+      .logo > div { font-size: 1.3rem; letter-spacing: 2px; line-height: 1.2; text-align: center; }
       /* 菜單鏈接適配：換行顯示，隱藏過大的按鈕 */
       .nav-links { width: 100%; justify-content: center; gap: 15px; flex-wrap: wrap; }
       .nav-links a { font-size: 1rem; }
