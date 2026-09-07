@@ -310,7 +310,7 @@
   <section id="contact">
     <h2 class="section-title">在線諮詢與報名 <span class="en-text" style="font-size: 0.5em;">Online Consultation & Registration</span></h2>
    /* <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST"> */
-      <form class="contact-form" onsubmit="event.preventDefault(); window.location.href='ThanksPage.html';">
+      <form class="contact-form" id="myForm" >
       <div class="form-group">
         <label>您的姓名 <span class="en-text" style="display:inline;">Your Name</span></label>
         <input type="text" name="name" class="form-control" required>
@@ -344,6 +344,11 @@
     <p style="margin-top: 15px;">© 2026 三清宮道教學院 · 保留所有權利<br>
     <span class="en-text" style="color:#aaa;">© 2026 Sanqing Palace Taoist College · All Rights Reserved</span></p>
   </footer>
-
+<script>
+  document.getElementById('myForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // 阻止表單默認提交
+    window.location.href = 'ThanksPage.html'; // 確保檔名與 GitHub 中的完全一致
+  });
+</script>
 </body>
 </html>
