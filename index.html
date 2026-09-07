@@ -1,330 +1,206 @@
 <!DOCTYPE html>
-<html lang="zh-CN" class="scroll-smooth">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>三清宫道教学院 · 道家哲学研习与现代身心教育</title>
-  <!-- 引入 Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- 字体引入：思源宋体 -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['"Noto Serif SC"', 'serif'],
-          },
-          colors: {
-            daogreen: '#2C3E35', // 沉静墨绿
-            daogold: '#C29B38',   // 缃色淡金
-            daowhite: '#FAF8F5',  // 宣纸暖白
-            daodark: '#1B201E',   // 墨底黑
-          }
-        }
-      }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>三清宫道教学院 · 官方网站</title>
+  <style>
+    /* 基础重置与变量 */
+    :root {
+      --primary-color: #2c3e50;
+      --bg-color: #fcfbf9;
+      --text-main: #333;
+      --text-muted: #666;
+      --accent-color: #4a5d4e; /* 淡雅松绿 */
     }
-  </script>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "PingFang SC", "Microsoft YaHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* 导航栏 */
+    header {
+      position: sticky; top: 0; background: rgba(252, 251, 249, 0.95);
+      backdrop-filter: blur(10px); z-index: 1000;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 5%; border-bottom: 1px solid #eaeaea;
+    }
+    .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+    .nav-links { display: flex; gap: 30px; }
+    .nav-links a:hover { color: var(--accent-color); }
+
+    /* 通用版块样式 */
+    section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 2rem; margin-bottom: 40px; color: var(--primary-color); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+    /* 首屏视觉焦点 */
+    .hero {
+      height: 80vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      background: linear-gradient(rgba(252,251,249,0.7), rgba(252,251,249,0.9)), url('https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?auto=format&fit=crop&w=1920&q=80') center/cover;
+    }
+    .hero h1 { font-size: 3rem; margin-bottom: 20px; letter-spacing: 4px; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; }
+    .btn-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .btn {
+      padding: 15px 30px; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: 0.3s;
+    }
+    .btn-primary { background-color: var(--primary-color); color: #fff; border: none; }
+    .btn-primary:hover { background-color: #1a252f; }
+    .btn-outline { background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); }
+    .btn-outline:hover { background-color: var(--primary-color); color: #fff; }
+
+    /* 卡片样式 */
+    .card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    .news-item { margin-bottom: 15px; display: flex; justify-content: space-between; }
+    .news-date { color: #999; font-size: 0.9em; }
+
+    /* 表单 */
+    .contact-form { max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+    textarea.form-control { resize: vertical; height: 120px; }
+    .submit-btn { width: 100%; background: var(--accent-color); color: white; padding: 15px; border: none; font-size: 1.1rem; cursor: pointer; }
+
+    /* 页脚 */
+    footer { background: var(--primary-color); color: #ccc; text-align: center; padding: 40px 5%; margin-top: 60px; }
+    footer p { margin-bottom: 10px; }
+
+    /* 响应式 */
+    @media(max-width: 768px) {
+      .nav-links { display: none; } /* 移动端建议后续增加汉堡菜单 */
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
-<body class="bg-daowhite text-stone-800 font-serif antialiased selection:bg-daogreen selection:text-white">
+<body>
 
-  <!-- 1. 顶部导航栏 -->
-  <nav class="sticky top-0 z-50 bg-daowhite/90 backdrop-blur border-b border-stone-200">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <div class="flex items-center space-x-3">
-        <!-- 徽标 -->
-        <img 
-          src="三清宫logo.png" 
-          alt="三清宫道教学院徽标" 
-          class="w-10 h-10 object-contain rounded"
-        />
-        <div class="leading-tight">
-          <span class="block font-bold text-lg text-daodark tracking-wider">三清宫道教学院</span>
-          <span class="block text-xs text-stone-500 font-sans tracking-widest">SANQING TAOIST ACADEMY</span>
-        </div>
-      </div>
-
-      <!-- 桌面端菜单 -->
-      <div class="hidden md:flex items-center space-x-8 text-sm tracking-widest text-stone-700">
-        <a href="#about" class="hover:text-daogold transition">关于学院</a>
-        <a href="#pillars" class="hover:text-daogold transition">修研特色</a>
-        <a href="#programs" class="hover:text-daogold transition">学术课程</a>
-        <a href="#gallery" class="hover:text-daogold transition">学院风貌</a>
-        <a href="#join" class="px-5 py-2.5 border border-daogreen text-daogreen hover:bg-daogreen hover:text-white transition rounded-full text-xs font-semibold">
-          预约参访
-        </a>
-      </div>
-
-      <!-- 移动端汉堡菜单按钮 -->
-      <button id="menu-btn" class="md:hidden text-stone-700 focus:outline-none" aria-label="Toggle Menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- 移动端下拉菜单 -->
-    <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2 bg-daowhite border-b border-stone-200 space-y-3 text-sm">
-      <a href="#about" class="block py-1 hover:text-daogreen">关于学院</a>
-      <a href="#pillars" class="block py-1 hover:text-daogreen">修研特色</a>
-      <a href="#programs" class="block py-1 hover:text-daogreen">学术课程</a>
-      <a href="#gallery" class="block py-1 hover:text-daogreen">学院风貌</a>
-      <a href="#join" class="block py-2 text-center border border-daogreen text-daogreen rounded-full text-xs">预约参访</a>
-    </div>
-  </nav>
-
-  <!-- 2. 首屏视觉区 (Hero Section) -->
-  <header class="relative py-28 md:py-36 px-6 border-b border-stone-200 overflow-hidden bg-gradient-to-b from-stone-100 to-daowhite">
-    <div class="max-w-4xl mx-auto text-center">
-      <p class="text-xs uppercase tracking-[0.35em] text-stone-500 mb-6 font-sans">Ancient Wisdom · Modern Education</p>
-      
-      <!-- 主标题：加大上下行距与字距，视觉对称对齐 -->
-      <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-daodark mb-10 flex flex-col space-y-4 items-center tracking-[0.25em] mr-[-0.25em]">
-        <span>融汇道家深邃智慧</span>
-        <span class="text-daogreen">构筑清修研习道场</span>
-      </h1>
-
-      <p class="text-base md:text-lg text-stone-600 leading-relaxed max-w-2xl mx-auto mb-10 font-light">
-        我们将千载哲学传统引入当代教育语境。在修身养性的宁静环境中，开展系统严谨的学术探究，感悟道法自然与内在天地之谐。
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href="#join" class="w-full sm:w-auto px-8 py-3.5 bg-daogreen text-white text-sm tracking-widest rounded-full hover:bg-stone-800 transition shadow-sm">
-          申请加入旅程
-        </a>
-        <a href="#about" class="w-full sm:w-auto px-8 py-3.5 border border-stone-300 text-stone-700 text-sm tracking-widest rounded-full hover:border-daogreen transition">
-          了解学院愿景
-        </a>
-      </div>
-    </div>
+  <!-- 导航栏 -->
+  <header>
+    <div class="logo">三清宫道教学院</div>
+    <nav class="nav-links">
+      <a href="#about">学院概况</a>
+      <a href="#programs">招生与修学</a>
+      <a href="#academics">学术与经典</a>
+      <a href="#contact">联系我们</a>
+    </nav>
   </header>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 30px; width: 100%;">
-  
-  <div style="flex: 1; min-width: 250px;">
-    <strong style="font-size: 1.1em;">核心愿景</strong>
-    <div style="margin-top: 10px; color: #555;">
-      我们致力于弘扬道教开创的智慧，将古老的哲学传统与现代教育深度结合。
+  <!-- 首屏 -->
+  <div class="hero">
+    <h1>传承道法自然 · 弘扬学术清音</h1>
+    <p>融汇道家深邃智慧，构筑正规、系统、严谨的清修研习道场</p>
+    <div class="btn-group">
+      <a href="#programs" class="btn btn-primary">致青年学子：学历教育简章</a>
+      <a href="#contact" class="btn btn-outline">致社会贤达：短期研修报名</a>
     </div>
   </div>
 
-  <div style="flex: 1; min-width: 250px;">
-    <strong style="font-size: 1.1em;">环境与机制</strong>
-    <div style="margin-top: 10px; color: #555;">
-      依托清幽宁静的道场环境，三清宫道教学院为您提供：<br><br>
-      · <strong>清修境地</strong>：营造一处隔绝喧嚣、调摄身心的宁静空间。<br>
-      · <strong>学术研习</strong>：建立系统严谨的机制，辅助学子体悟“道法自然”与内心澄明的真谛。
-    </div>
-  </div>
-
-  <div style="flex: 1; min-width: 250px;">
-    <strong style="font-size: 1.1em;">诚挚邀请</strong>
-    <div style="margin-top: 10px; color: #555;">
-      无论您是在求索形而上的生命哲思，还是探寻安顿身心的实际路径，我们真诚地邀请您加入，共同踏上这段充满智慧、明达与清静的修学之旅。
-    </div>
-  </div>
-
-</div>
-
-  <strong>环境与机制</strong><br>
-  依托清幽宁静的道场环境，三清宫道教学院为您提供：<br>
-  · <strong>清修境地</strong>：营造一处隔绝喧嚣、调摄身心的宁静空间。<br>
-  · <strong>学术研习</strong>：建立系统严谨的机制，辅助学子体悟“道法自然”与内心澄明的真谛。<br><br>
-
-  <strong>诚挚邀请</strong><br>
-  无论您是在求索形而上的生命哲思，还是探寻安顿身心的实际路径，我们真诚地邀请您加入，共同踏上这段充满智慧、明达与清静的修学之旅。
-</div>
+  <!-- 学院简介与院务公开 -->
+  <section id="about">
+    <h2 class="section-title">学院概况与日常</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>办学宗旨</h3>
+        <p>我们致力于弘扬道教开创的智慧，将古老的哲学传统与现代高等教育深度结合。依托清幽宁静的道场环境，三清宫不仅营造了一处隔绝喧嚣的宁静境地，更建立起系统严谨的学术研习机制，辅助学子体悟“道法自然”的真谛。</p>
+      </div>
+      <div class="card">
+        <h3>院务公开 & 最新动态</h3>
+        <ul>
+          <li class="news-item"><span>2026年度春季开学典礼圆满举行</span> <span class="news-date">09-01</span></li>
+          <li class="news-item"><span>关于更新秋季作息安排的通知</span> <span class="news-date">08-28</span></li>
+          <li class="news-item"><span>《道藏》文献数字化工程启动</span> <span class="news-date">08-15</span></li>
+          <li class="news-item"><span>教务处：客座教授系列讲座预告</span> <span class="news-date">08-10</span></li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <!-- 4. 研习特色三支柱 (Pillars) -->
-  <section id="pillars" class="py-20 bg-stone-100/70 border-y border-stone-200 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center max-w-xl mx-auto mb-16">
-        <span class="text-xs tracking-widest text-stone-500 uppercase font-sans">Core Principles</span>
-        <h3 class="text-2xl md:text-3xl font-bold text-daodark mt-2">三大修研支柱</h3>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-8">
-        <!-- 卡片 1 -->
-        <div class="bg-white p-8 rounded-xl border border-stone-200/80 shadow-sm hover:border-daogreen/50 transition">
-          <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-daogreen font-semibold mb-6">01</div>
-          <h4 class="text-xl font-bold text-daodark mb-3">系统学术研究</h4>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            立足《道德经》《南华经》等核心经典文献，结合现代哲学、宗教学与认知科学方法，提供严谨系统的义理研读与思辨研讨。
-          </p>
+  <!-- 双轨修学体系 -->
+  <section id="programs" style="background-color: #f4f3ef; max-width: 100%;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 80px 5%;">
+      <h2 class="section-title">招生与修学体系</h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>青年学生（学历与长期研习）</h3>
+          <p><strong>学制：</strong> 2年制 / 4年制</p>
+          <p><strong>核心课程：</strong> 宗教学导论、道教史、科仪规范与演练、早期道家哲学文本精读。</p>
+          <p><strong>培养目标：</strong> 培养具备扎实学术功底与深厚宗教学养的现代道教学者及教职人员。</p>
         </div>
-
-        <!-- 卡片 2 -->
-        <div class="bg-white p-8 rounded-xl border border-stone-200/80 shadow-sm hover:border-daogreen/50 transition">
-          <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-daogreen font-semibold mb-6">02</div>
-          <h4 class="text-xl font-bold text-daodark mb-3">清静修心环境</h4>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            依托山水之间的清修空间。设立静修室、林间研步道与茶道讲堂，为学员提供远离尘俗烦扰的修身自省道场。
-          </p>
-        </div>
-
-        <!-- 卡片 3 -->
-        <div class="bg-white p-8 rounded-xl border border-stone-200/80 shadow-sm hover:border-daogreen/50 transition">
-          <div class="w-10 h-10 rounded-full bg-stone-100 flex items-center justify-center text-daogreen font-semibold mb-6">03</div>
-          <h4 class="text-xl font-bold text-daodark mb-3">内在和谐体悟</h4>
-          <p class="text-stone-600 text-sm leading-relaxed">
-            超越纯概念灌输，融通身心调适、内观静坐与吐纳功法，将形而上的天人智慧化作日常生活中的定力与明澈。
-          </p>
+        <div class="card">
+          <h3>社会各界（短期研修与工坊）</h3>
+          <p><strong>项目：</strong> 7天止息观照营 / 周末道医养生班 / 哲学工坊</p>
+          <p><strong>修持内容：</strong> 吐纳调息、林间经行、经典夜话。暂别电子屏幕与信息杂音，重建身心秩序。</p>
+          <p><strong>受众：</strong> 面向有志于探寻安顿身心路径的企业管理者及各界人士。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 5. 课程与研习模块 (Programs) -->
-  <section id="programs" class="py-24 px-6 max-w-6xl mx-auto">
-    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-      <div>
-        <span class="text-xs tracking-widest text-stone-500 uppercase font-sans">Curriculum</span>
-        <h3 class="text-2xl md:text-3xl font-bold text-daodark mt-2">学程设置</h3>
+  <!-- 学术交流与经典研读 -->
+  <section id="academics">
+    <h2 class="section-title">学术与经典研读</h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>本季经典研读计划</h3>
+        <ul style="list-style-type: square; padding-left: 20px; color: #555;">
+          <li>《道德经》义理精读（每周三晚）</li>
+          <li>《庄子·内篇》现代伦理解析研讨会</li>
+          <li>《抱朴子》与魏晋玄学讲读</li>
+        </ul>
       </div>
-      <p class="text-stone-500 text-sm mt-3 md:mt-0 font-sans">理论研索与修身实证兼具的渐进体系</p>
-    </div>
-
-    <div class="grid md:grid-cols-2 gap-8">
-      <div class="p-8 border border-stone-200 rounded-xl flex flex-col justify-between hover:shadow-sm transition">
-        <div>
-          <span class="text-xs font-sans tracking-wider px-2.5 py-1 bg-stone-100 text-stone-600 rounded">学术研习 · 6个月</span>
-          <h4 class="text-xl font-bold text-daodark mt-4 mb-3">早期道家义理与现代思辨</h4>
-          <p class="text-stone-600 text-sm leading-relaxed mb-6 font-light">
-            梳理老庄核心文本脉络，结合现代伦理学与心理学，解构道法自然、齐物通达之哲思。
-          </p>
-        </div>
-        <a href="#join" class="text-xs font-sans font-semibold text-daogreen tracking-wider hover:text-daogold flex items-center">
-          查看大纲与导师 →
-        </a>
-      </div>
-
-      <div class="p-8 border border-stone-200 rounded-xl flex flex-col justify-between hover:shadow-sm transition">
-        <div>
-          <span class="text-xs font-sans tracking-wider px-2.5 py-1 bg-stone-100 text-stone-600 rounded">身心静修 · 7天驻修</span>
-          <h4 class="text-xl font-bold text-daodark mt-4 mb-3">止息观照与山居修持工坊</h4>
-          <p class="text-stone-600 text-sm leading-relaxed mb-6 font-light">
-            暂别电子屏幕与信息杂音，于晨昏中体验吐纳调息、步道经行与茶道冥思，重建身心秩序。
-          </p>
-        </div>
-        <a href="#join" class="text-xs font-sans font-semibold text-daogreen tracking-wider hover:text-daogold flex items-center">
-          查看大纲与导师 →
-        </a>
+      <div class="card">
+        <h3>学术交流中心</h3>
+        <p>学院定期举办宗教学高峰论坛，并积极与海内外高校哲学系、宗教学系开展互访交流。致力于将传统道家思想引入当代生命科学与认知科学的跨学科对话之中。</p>
       </div>
     </div>
   </section>
 
-  <!-- 6. 学院风貌与修习环境 (Gallery) -->
-  <section id="gallery" class="py-24 bg-stone-100/60 border-t border-stone-200 px-6">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center max-w-xl mx-auto mb-16">
-        <span class="text-xs tracking-widest text-stone-500 uppercase font-sans">Sanctuary & Campus</span>
-        <h3 class="text-2xl md:text-3xl font-bold text-daodark mt-2">清静道场 · 学院风貌</h3>
-        <p class="text-stone-500 text-sm mt-3 font-sans">依山傍水、含虚涵静，构筑安顿身心之所</p>
+  <!-- 留言表单 -->
+  <section id="contact">
+    <h2 class="section-title">在线咨询与报名</h2>
+    <!-- 将 YOUR_FORMSPREE_ENDPOINT 替换为您在 formspree.io 注册后获取的链接 -->
+    <form class="contact-form" action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST">
+      <div class="form-group">
+        <label>您的姓名</label>
+        <input type="text" name="name" class="form-control" required>
       </div>
-
-      <!-- 照片网格展示 -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- 照片卡片 1 -->
-        <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
-          <img 
-            src="研修功坊3.jpg" 
-            alt="静修精舍" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="text-lg font-bold mt-1">晨昏调息 · 观心之所</h4>
-            <p class="text-xs text-stone-300 font-light mt-1">隔绝尘嚣，静坐止息的修心空间</p>
-          </div>
-        </div>
-
-        <!-- 照片卡片 2 -->
-        <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
-          <img 
-            src="藏经书阁.jpg" 
-            alt="藏经书阁" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="text-lg font-bold mt-1">义理研索 · 典籍宝库</h4>
-            <p class="text-xs text-stone-300 font-light mt-1">汇聚诸子经典与现代学术专著</p>
-          </div>
-        </div>
-
-        <!-- 照片卡片 3 -->
-        <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
-          <img 
-            src="山水胜境.jpg" 
-            alt="山水胜境" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="text-lg font-bold mt-1">自然步道 · 经行采气</h4>
-            <p class="text-xs text-stone-300 font-light mt-1">漫行于山壑流泉之间，融入天地生机</p>
-          </div>
-        </div>
-
-        <!-- 照片卡片 4 -->
-        <div class="group relative overflow-hidden rounded-2xl bg-stone-200 aspect-[3/4] shadow-sm">
-          <img 
-            src="研修功坊4.jpg" 
-            alt="研修功坊" 
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/25 to-transparent flex flex-col justify-end p-6 text-white">
-            <h4 class="text-lg font-bold mt-1">烹茶论道 · 适性逍遥</h4>
-            <p class="text-xs text-stone-300 font-light mt-1">于一盏清茗中体味素朴平常心</p>
-          </div>
-        </div>
+      <div class="form-group">
+        <label>联系邮箱</label>
+        <input type="email" name="email" class="form-control" required>
       </div>
-    </div>
+      <div class="form-group">
+        <label>咨询类型</label>
+        <select name="type" class="form-control">
+          <option value="学历教育报名">学历教育报名与咨询</option>
+          <option value="短期研修报名">短期研修工坊报名</option>
+          <option value="学术交流">学术交流与合作</option>
+          <option value="其他">其他留言</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>留言内容</label>
+        <textarea name="message" class="form-control" placeholder="请输入您的具体需求或疑问..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">发送留言</button>
+    </form>
   </section>
 
-  <!-- 7. 行动召唤区 (CTA) -->
-  <section id="join" class="py-20 px-6 bg-daodark text-daowhite text-center">
-    <div class="max-w-3xl mx-auto">
-      <h3 class="text-2xl md:text-4xl font-bold tracking-wide mb-6">与天地同游，启智慧之门</h3>
-      <p class="text-stone-300 text-sm md:text-base leading-relaxed mb-10 font-light">
-        如果您正在寻求与自我和宇宙的深层次连接，欢迎留下您的联络信息，三清宫道教学院教务处将为您寄送详细修学简章。
-      </p>
-      <form class="max-w-md mx-auto flex flex-col sm:flex-row gap-3" onsubmit="event.preventDefault(); alert('信息已提交，三清宫道教学院感谢您的关注。');">
-        <input 
-          type="email" 
-          placeholder="请输入您的电子邮箱" 
-          required 
-          class="w-full px-5 py-3 rounded-full bg-stone-800 text-sm text-white placeholder-stone-400 border border-stone-700 focus:outline-none focus:border-daogold"
-        />
-        <button 
-          type="submit" 
-          class="sm:w-auto px-7 py-3 rounded-full bg-daogold text-daodark text-sm font-semibold tracking-wider hover:bg-amber-400 transition"
-        >
-          获取简章
-        </button>
-      </form>
-    </div>
-  </section>
-
-  <!-- 8. 页脚 (Footer) -->
-  <footer class="py-12 px-6 border-t border-stone-200 text-stone-500 text-xs text-center font-sans tracking-wider">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-      <div>© 2026 三清宫道教学院 · 保留所有权利</div>
-      <div class="flex space-x-6">
-        <a href="#" class="hover:text-stone-800">修学简章</a>
-        <a href="#" class="hover:text-stone-800">学术研讨</a>
-        <a href="#" class="hover:text-stone-800">访客指南</a>
-      </div>
-    </div>
+  <!-- 页脚 -->
+  <footer>
+    <p>地址：中国 · 三清山风景名胜区 三清宫道教学院</p>
+    <p>联系电话：0793-XXXXXXX | 邮箱：admissions@taoist-college.edu.kg</p>
+    <p>© 2026 三清宫道教学院 · 保留所有权利</p>
   </footer>
 
-  <!-- 移动端菜单交互脚本 -->
-  <script>
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-  </script>
 </body>
 </html>
