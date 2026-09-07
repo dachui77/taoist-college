@@ -137,11 +137,36 @@
     footer p { margin-bottom: 10px; }
 
     /* 響應式 */
-    @media(max-width: 768px) {
+   /* @media(max-width: 768px) {
       header { flex-direction: column; padding: 15px 20px; gap: 15px; }
       .nav-links { width: 100%; justify-content: center; gap: 20px; flex-wrap: wrap; }
       .grid-2 { grid-template-columns: 1fr; }
       .hero h1 { font-size: 2rem; }
+    } */
+    /* ================= 響應式手機適配 ================= new  15:49 add*/
+    @media(max-width: 768px) {
+      /* 導航與 Logo 適配：改為上下居中排列，縮小尺寸 */
+      header { flex-direction: column; padding: 15px 10px; gap: 15px; text-align: center; }
+      .logo { flex-direction: column; gap: 8px; }
+      .logo-img { height: 60px; } 
+      .logo > div { font-size: 1.5rem; letter-spacing: 2px; line-height: 1.3; }
+      
+      /* 菜單鏈接適配：換行顯示，隱藏過大的按鈕 */
+      .nav-links { width: 100%; justify-content: center; gap: 15px; flex-wrap: wrap; }
+      .nav-links a { font-size: 1rem; }
+      .nav-links a.nav-btn { display: none; } 
+
+      /* 版塊間距與標題適配：縮小整體留白與字號 */
+      section { padding: 50px 5%; }
+      .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+      .grid-2 { grid-template-columns: 1fr; gap: 25px; } /* 雙列變單列 */
+
+      /* 首屏視覺適配：高度自適應，按鈕變為上下滿寬排列 */
+      .hero { height: auto; padding: 120px 5% 80px; }
+      .hero h1 { font-size: 1.8rem; letter-spacing: 2px; }
+      .hero p { font-size: 1.05rem; margin-bottom: 30px; }
+      .btn-group { flex-direction: column; width: 100%; gap: 15px; }
+      .btn { width: 100%; padding: 12px 20px; }
     }
   </style>
 </head>
