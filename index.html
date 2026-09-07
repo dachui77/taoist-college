@@ -46,13 +46,23 @@
       display: flex; 
       align-items: center; 
       gap: 15px; 
-      font-size: 2.0rem; /* 加大中文字号 */
-      font-weight: bold; 
-      letter-spacing: 4px; /* 增加中文字间距，使其宽度与英文平衡 */
       color: var(--primary-color);
     }
+    /* 专门控制中文标题：加大字号，拉开字间距 */
+    .logo > div {
+      font-size: 2.2rem; 
+      font-weight: bold;
+      letter-spacing: 7px; 
+      line-height: 1.1;
+    }
+    /* 专门控制英文标识：字间距归零，调整比例完美对齐中文 */
+    .logo .en-text {
+      letter-spacing: 0px; 
+      font-size: 0.52em !important; 
+      margin-top: 4px !important;
+    }
     .logo-img { 
-      height: 85px; /* 同步放大 Logo 图标 */
+      height: 95px; 
       width: auto; 
       object-fit: contain; 
     }
