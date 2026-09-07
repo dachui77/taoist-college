@@ -30,7 +30,19 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 20px 5%; border-bottom: 1px solid #eaeaea;
     }
-    .logo { font-size: 1.5rem; font-weight: bold; letter-spacing: 2px; }
+   .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 12px; 
+      font-size: 1.5rem; 
+      font-weight: bold; 
+      letter-spacing: 2px; 
+    }
+    .logo-img { 
+      height: 45px; 
+      width: auto; 
+      object-fit: contain; 
+    }
     .nav-links { display: flex; gap: 30px; }
     .nav-links a:hover { color: var(--accent-color); }
 
@@ -86,7 +98,11 @@
 
   <!-- 导航栏 -->
   <header>
-    <div class="logo">三清宫道教学院</div>
+    <div class="logo">
+      <!-- 请将 src="logo.png" 替换为您实际上传的文件路径 -->
+      <img src="三清宫logo.png" alt="三清宫道教学院 LOGO" class="logo-img">
+      <span>三清宫道教学院</span>
+    </div>
     <nav class="nav-links">
       <a href="#about">学院概况</a>
       <a href="#programs">招生与修学</a>
