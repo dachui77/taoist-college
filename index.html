@@ -1,76 +1,357 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>圖文介紹模塊測試</title>
+  <title>三清宮道教學院 · 官方網站 | Sanqing Palace Taoist College</title>
   <style>
-    /* 網頁基礎設定 (可選，讓畫面更好看) */
+    /* 基礎重置與變量 */
+    :root {
+      --primary-color: #2c3e50;
+      --bg-color: #fcfbf9;
+      --text-main: #333;
+      --text-muted: #666;
+      --accent-color: #4a5d4e;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: "Helvetica Neue", Helvetica, Arial, "PingFang TC", "微軟正黑體", sans-serif;
-      padding: 20px;
-    }
-
-    /* 模塊外框設計：使用 Flexbox 讓圖文左右排列 */
-    .info-module {
-      display: flex;
-      align-items: center; /* 垂直置中 */
-      gap: 30px; /* 圖文之間的間距 */
-      padding: 20px;
-      background-color: #f8f9fa; /* 淺灰背景 */
-      border-radius: 8px; /* 圓角效果 */
-      margin: 20px auto;
-      max-width: 1000px; /* 限制整體最大寬度居中 */
-    }
-
-    /* 圖片區塊設定 */
-    .image-section img {
-      width: 100%;
-      max-width: 400px; /* 限制圖片最大寬度 */
-      height: auto;
-      border-radius: 6px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 增加輕微陰影 */
-    }
-
-    /* 文字區塊設定：自動填滿剩餘空間 */
-    .text-section {
-      flex: 1;
-    }
-
-    .text-section h3 {
-      margin-top: 0;
-      color: #333;
-      font-size: 24px;
-    }
-
-    .text-section p {
-      color: #555;
+      font-family: "PingFang SC", "Microsoft YaHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
       line-height: 1.6;
     }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    
+    /* 英文輔助文字樣式 */
+    .en-text {
+      display: block;
+      font-size: 0.9em;
+      color: #7f8c8d;
+      margin-top: 4px;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-weight: normal;
+      line-height: 1.4;
+    }
+/* 全局水印樣式 */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-image: url('山水胜境.jpg'); /* 請確保檔名與實際上傳的一致 */
+      background-repeat: no-repeat; /* 取消平鋪 */
+      background-size: 100% 100%; /* 讓單張圖片等比例放大，充滿整個螢幕 */
+      background-position: center; /* 圖片居中對齊 */
+      opacity: 0.08; /* 水印透明度 */
+      z-index: 9999; 
+      pointer-events: none; /* 確保不會阻擋點擊 */
+    }
+    /* 導航欄樣式 */
+    header {
+      position: sticky; top: 0; 
+      background: rgba(252, 251, 249, 0.92); 
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      z-index: 1000; display: flex; justify-content: space-between; align-items: center;
+      padding: 15px 5%; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04); transition: all 0.3s ease;
+    }
+    .logo { 
+      display: flex; 
+      align-items: center; 
+      gap: 15px; 
+      color: var(--primary-color);
+    }
+    /* 专门控制中文标题：加大字号，拉开字间距 */
+   /* .logo > div {
+      font-size: 2.2rem; 
+      font-weight: bold;
+      letter-spacing: 7px; 
+      line-height: 1.1;
+    }   为了将标题文字由左对齐变成居中对其*/
+    /* 控制中文標題與英文標識：改為居中對齊 */
+    .logo > div {
+      font-size: 2.2rem; 
+      font-weight: bold;
+      letter-spacing: 7px; 
+      line-height: 1.1;
+      text-align: center; /* 將文字改為居中對齊 */
+    }
+    /* 专门控制英文标识：字间距归零，调整比例完美对齐中文 */
+    .logo .en-text {
+      letter-spacing: 0px; 
+      font-size: 0.6em !important; 
+      margin-top: 4px !important;
+    }
+    .logo-img { 
+      height: 95px; 
+      width: auto; 
+      object-fit: contain; 
+    }
+    .nav-links { display: flex; gap: 35px; align-items: center; }
+    .nav-links a { font-size: 1.1rem; color: var(--text-main); font-weight: 500; position: relative; padding: 5px 0; transition: color 0.3s ease; text-align: center; }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -2px; left: 50%;
+      width: 0; height: 2px; background-color: var(--accent-color);
+      transition: all 0.3s ease; transform: translateX(-50%);
+    }
+    .nav-links a:hover { color: var(--accent-color); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.nav-btn {
+      background-color: var(--primary-color); color: #fff; padding: 10px 22px;
+      border-radius: 4px; font-size: 1rem; letter-spacing: 1px; transition: all 0.3s ease;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .nav-links a.nav-btn::after { display: none; }
+    .nav-links a.nav-btn:hover { background-color: var(--accent-color); transform: translateY(-2px); box-shadow: 0 4px 8px rgba(74, 93, 78, 0.2); color: #fff; }
 
-    /* 響應式設計：螢幕寬度小於 768px (手機版) 時，改為上下排列 */
-    @media (max-width: 768px) {
-      .info-module {
-        flex-direction: column;
-        text-align: center; /* 讓文字與標題置中 */
-      }
+    /* 通用版塊樣式 */
+    section { padding: 80px 5%; max-width: 1200px; margin: 0 auto; }
+    .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 40px; color: var(--primary-color); }
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+    /* 首屏視覺焦點 */
+    .hero {
+      height: 80vh; display: flex; flex-direction: column;
+      justify-content: center; align-items: center; text-align: center;
+      background: linear-gradient(rgba(252,251,249,0.7), rgba(252,251,249,0.9)), url('https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?auto=format&fit=crop&w=1920&q=80') center/cover;
+    }
+    .hero h1 { font-size: 2.8rem; margin-bottom: 20px; letter-spacing: 4px; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); margin-bottom: 40px; max-width: 800px; }
+    .btn-group { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .btn { padding: 15px 30px; border-radius: 4px; font-size: 1rem; cursor: pointer; transition: 0.3s; text-align: center; }
+    .btn-primary { background-color: var(--primary-color); color: #fff; border: none; }
+    .btn-primary:hover { background-color: #1a252f; }
+    .btn-outline { background-color: transparent; border: 1px solid var(--primary-color); color: var(--primary-color); }
+    .btn-outline:hover { background-color: var(--primary-color); color: #fff; }
+
+    /* 卡片樣式 */
+    .card { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .card h3 { font-size: 1.4rem; margin-bottom: 15px; color: var(--accent-color); border-bottom: 1px solid #eee; padding-bottom: 10px; }
+    .news-item { margin-bottom: 15px; display: flex; justify-content: space-between; align-items: flex-start; flex-direction: column; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
+    .news-date { color: #999; font-size: 0.9em; margin-top: 5px; }
+
+    /* 表單 */
+    .contact-form { max-width: 600px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 8px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .form-control { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; font-family: inherit; }
+    textarea.form-control { resize: vertical; height: 120px; }
+    .submit-btn { width: 100%; background: var(--accent-color); color: white; padding: 15px; border: none; font-size: 1.1rem; cursor: pointer; text-align: center; }
+
+    /* 頁腳 */
+    footer { background: var(--primary-color); color: #ccc; text-align: center; padding: 40px 5%; margin-top: 60px; }
+    footer p { margin-bottom: 10px; }
+
+    /* 響應式 */
+   /* @media(max-width: 768px) {
+      header { flex-direction: column; padding: 15px 20px; gap: 15px; }
+      .nav-links { width: 100%; justify-content: center; gap: 20px; flex-wrap: wrap; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+    } */
+    /* ================= 響應式手機適配 ================= new  15:49 add*/
+    @media(max-width: 768px) {
+      /* 導航與 Logo 適配：改為上下居中排列，縮小尺寸 */
+      header { flex-direction: column; padding: 15px 10px; gap: 15px; text-align: center; }
+     /* .logo { flex-direction: column; gap: 8px; }
+      .logo-img { height: 60px; } 
+      .logo > div { font-size: 1.5rem; letter-spacing: 2px; line-height: 1.3; } */
+      /*覆盖上方代码，使logo与文字同行*/
+      .logo { flex-direction: row; justify-content: center; gap: 10px; }
+      .logo-img { height: 45px; } /* 縮小圖片以適應單行顯示 */
+      .logo > div { font-size: 1.3rem; letter-spacing: 2px; line-height: 1.2; text-align: center; }
+      /* 菜單鏈接適配：換行顯示，隱藏過大的按鈕 */
+      .nav-links { width: 100%; justify-content: center; gap: 15px; flex-wrap: wrap; }
+      .nav-links a { font-size: 1rem; }
+      .nav-links a.nav-btn { display: none; } 
+
+      /* 版塊間距與標題適配：縮小整體留白與字號 */
+      section { padding: 50px 5%; }
+      .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+      .grid-2 { grid-template-columns: 1fr; gap: 25px; } /* 雙列變單列 */
+
+      /* 首屏視覺適配：高度自適應，按鈕變為上下滿寬排列 */
+      .hero { height: auto; padding: 120px 5% 80px; }
+      .hero h1 { font-size: 1.8rem; letter-spacing: 2px; }
+      .hero p { font-size: 1.05rem; margin-bottom: 30px; }
+      .btn-group { flex-direction: column; width: 100%; gap: 15px; }
+      .btn { width: 100%; padding: 12px 20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- 圖文介紹模塊開始 -->
-  <div class="info-module">
-    <div class="image-section">
-      <!-- 這裡的 src 已替換為測試用的佔位圖，請自行修改為您的圖片路徑 -->
-     <img src="山水胜境.jpg" alt="山水勝境">
+  <!-- 導航欄 -->
+  <header>
+    <div class="logo">
+      <img src="三清宫logo.png" alt="三清宮道教學院 LOGO" class="logo-img">
+      <div>
+        三清宮道教學院
+        <span class="en-text" style="margin-top: 0; font-size: 0.7em;">Sanqing Palace Taoist College</span>
+      </div>
     </div>
-    <div class="text-section">
-      <h3>這裡輸入模塊標題</h3>
-      <p>這裡填寫您的詳細介紹文字內容。這是一個具備響應式設計的圖文排版模塊，在電腦版螢幕上會左右並排，在手機版螢幕上會自動轉換為上下排列。您可以根據實際需求自由修改此處的文字、替換左側圖片，以及調整整體樣式。</p>
+    <nav class="nav-links">
+      <a href="#about">學院概況 <span class="en-text">About Us</span></a>
+      <a href="#programs">招生與修學 <span class="en-text">Programs</span></a>
+      <a href="#academics">學術與經典 <span class="en-text">Academics</span></a>
+      <a href="#contact" class="nav-btn">在線報名 <span class="en-text" style="color:#dcdcdc; font-size: 0.8em;">Apply Online</span></a>
+    </nav>
+  </header>
+
+  <!-- 首屏 -->
+  <div class="hero">
+    <h1>傳承道法 · 弘揚學術
+      <span class="en-text" style="font-size: 0.5em; margin-top: 15px; color: #555;">Inheriting the Way of Nature, Promoting Academic Purity</span>
+    </h1>
+    <p>融匯道家深邃智慧，構築正規、系統、嚴謹的清修研習道場
+      <span class="en-text">Integrating profound Taoist wisdom to build a formal, systematic, and rigorous practice and study ashram.</span>
+    </p>
+    <div class="btn-group">
+      <a href="#programs" class="btn btn-primary">致青年學子：學歷教育簡章<br><span class="en-text" style="color: #ddd;">For Young Students: Degree Programs</span></a>
+      <a href="#contact" class="btn btn-outline">致社會賢達：短期研修報名<br><span class="en-text">For Social Elites: Short-term Retreats</span></a>
     </div>
   </div>
-  <!-- 圖文介紹模塊結束 -->
+
+  <!-- 學院簡介與院務公開 -->
+  <section id="about">
+    <h2 class="section-title">學院概況與日常 <span class="en-text" style="font-size: 0.5em;">College Overview & Daily Affairs</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>辦學宗旨 <span class="en-text">Our Mission</span></h3>
+     <p class="justify-text">
+  我們致力於弘揚道教開創的智慧，將古老的哲學傳統與現代高等教育深度結合。依託清幽寧靜的道場環境，三清宮不僅營造了一處隔絕喧囂的寧靜境地，更建立起系統嚴謹的學術研習機制，輔助學子體悟“道法自然”的真諦。
+</p>
+
+<p class="justify-text">
+  We are committed to promoting the wisdom pioneered by Taoism, deeply integrating ancient philosophical traditions with modern higher education. Relying on the serene and tranquil environment of the temple, Sanqing Palace not only creates a peaceful haven isolated from the hustle and bustle, but also establishes a systematic and rigorous academic study mechanism to help students comprehend the true essence of "Tao follows nature."
+</p>
+      </div>
+      <div class="card">
+        <h3>院務公開 & 最新動態 <span class="en-text">Administration & Latest News</span></h3>
+        <ul>
+          <li class="news-item">
+            <div>2026年度春季開學典禮圓滿舉行 <span class="en-text">Successful Conclusion of 2026 Spring Opening Ceremony</span></div>
+            <span class="news-date">09-01</span>
+          </li>
+          <li class="news-item">
+            <div>關於更新秋季作息安排的通知 <span class="en-text">Notice on Updating the Autumn Schedule</span></div>
+            <span class="news-date">08-28</span>
+          </li>
+          <li class="news-item">
+            <div>《道藏》文獻數字化工程啟動 <span class="en-text">Initiation of "Daozang" Literature Digitization Project</span></div>
+            <span class="news-date">08-15</span>
+          </li>
+          <li class="news-item">
+            <div>教務處：客座教授系列講座預告 <span class="en-text">Academic Affairs: Guest Professor Lecture Series Preview</span></div>
+            <span class="news-date">08-10</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 雙軌修學體系 -->
+  <section id="programs" style="background-color: #f4f3ef; max-width: 100%;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 80px 5%;">
+      <h2 class="section-title">招生與修學體系 <span class="en-text" style="font-size: 0.5em;">Admissions & Study System</span></h2>
+      <div class="grid-2">
+        <div class="card">
+          <h3>學歷與長期研習 <span class="en-text">Degree & Long-term Study</span></h3>
+         <div style="display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; margin-bottom: 15px;">
+    <!-- 第一行：中文 -->
+    <strong style="white-space: nowrap;">學    制：</strong>
+    <span>2年制 / 4年制</span>
+    
+    <!-- 第二行：英文 -->
+    <span class="en-text" style="white-space: nowrap;">(Duration):</span>
+    <span class="en-text">(2-year / 4-year)</span>
+</div>
+          <p><strong>培養目標 (Objectives)：</strong> 培養具備紮實學術功底與深厚宗教學養的現代道教學者及教職人員。
+            <span class="en-text">To cultivate modern Taoist scholars and clergy with a solid academic foundation and profound religious accomplishment.</span>
+          </p>
+        </div>
+        <div class="card">
+          <h3>短期研修與工坊 <span class="en-text">Short-term Retreats & Workshops</span></h3>
+          <p><strong>項目 (Programs)：</strong> 7天止息觀照營 / 週末道醫養生班 / 哲學工坊
+            <span class="en-text">7-Day Meditation Camp / Weekend Taoist Medicine Class / Philosophy Workshop</span>
+          </p>
+          <p><strong>修持內容 (Practices)：</strong> 吐納調息、林間經行、經典夜話。暫別電子屏幕與信息雜音，重建身心秩序。
+            <span class="en-text">Breathing exercises, forest walking, evening classic talks. Disconnect from screens to rebuild physical and mental order.</span>
+          </p>
+          <p><strong>受眾 (Audience)：</strong> 面向有志於探尋安頓身心路徑的企業管理者及各界人士。
+            <span class="en-text">Business managers and individuals from all walks of life interested in exploring paths to settle their body and mind.</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 學術交流與經典研讀 -->
+  <section id="academics">
+    <h2 class="section-title">學術與經典研讀 <span class="en-text" style="font-size: 0.5em;">Academic & Classic Studies</span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <h3>本季經典研讀計劃 <span class="en-text">This Season's Classic Study Plan</span></h3>
+        <ul style="list-style-type: square; padding-left: 20px; color: #555; line-height: 2;">
+          <li>《道德經》義理精讀（每週三晚）
+            <span class="en-text">Intensive Reading of "Tao Te Ching" (Every Wednesday Evening)</span>
+          </li>
+          <li>《莊子·內篇》現代倫理解析研討會
+            <span class="en-text">Seminar on Modern Ethical Analysis of "Zhuangzi: Inner Chapters"</span>
+          </li>
+          <li>《抱樸子》與魏晉玄學講讀
+            <span class="en-text">Lectures on "Baopuzi" and Wei-Jin Metaphysics</span>
+          </li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>學術交流中心 <span class="en-text">Academic Exchange Center</span></h3>
+        <p>學院定期舉辦宗教學高峰論壇，並積極與海內外高校哲學系、宗教學系開展互訪交流。致力於將傳統道家思想引入當代生命科學與認知科學的跨學科對話之中。
+          <span class="en-text" style="margin-top: 15px;">The college regularly hosts high-level forums on religious studies and actively engages in mutual visits and exchanges with philosophy and religious studies departments at universities home and abroad. We are committed to introducing traditional Taoist thought into interdisciplinary dialogues with contemporary life and cognitive sciences.</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 留言表單 -->
+  <section id="contact">
+    <h2 class="section-title">在線諮詢與報名 <span class="en-text" style="font-size: 0.5em;">Online Consultation & Registration</span></h2>
+     <form class="contact-form" action="ThanksPage.html" method="GET">
+      <div class="form-group">
+        <label>您的姓名 <span class="en-text" style="display:inline;">Your Name</span></label>
+        <input type="text" name="name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>聯繫郵箱 <span class="en-text" style="display:inline;">Contact Email</span></label>
+        <input type="email" name="email" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label>諮詢類型 <span class="en-text" style="display:inline;">Inquiry Type</span></label>
+        <select name="type" class="form-control">
+          <option value="學歷教育報名">學歷教育報名與諮詢 (Degree Program Consultation)</option>
+          <option value="短期研修報名">短期研修工坊報名 (Short-term Retreat Registration)</option>
+          <option value="學術交流">學術交流與合作 (Academic Exchange & Cooperation)</option>
+          <option value="其他">其他留言 (Other Messages)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>留言內容 <span class="en-text" style="display:inline;">Message Content</span></label>
+        <textarea name="message" class="form-control" placeholder="請輸入您的具體需求或疑問... Please enter your specific needs or questions..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">發送留言 <span class="en-text" style="color: #fff; display: block; font-size: 0.8em; margin-top: 2px;">Send Message</span></button>
+    </form>
+  </section>
+
+  <!-- 頁腳 -->
+  <footer>
+    <p>地址：承天順化省富祿縣 白馬國家公園內  三清宮<br>
+    <span class="en-text" style="color:#aaa;">Address: Foot of Bach Ma National Park, Phu Loc District, Thua Thien Hue Province, Vietnam - Sanqing Palace Taoist College</span></p>
+    <p style="margin-top: 15px;">聯繫電話 (Tel)：+84 986 433 846 | 郵箱 (Email)：yin@taoist-college.edu.kg</p>
+    <p style="margin-top: 15px;">© 1922 三清宮道教學院 · 保留所有權利<br>
+    <span class="en-text" style="color:#aaa;">© 1922 Sanqing Palace Taoist College · All Rights Reserved</span></p>
+  </footer>
 
 </body>
 </html>
