@@ -134,7 +134,10 @@
     /* 頁腳 */
     footer { background: var(--primary-color); color: #ccc; text-align: center; padding: 40px 5%; margin-top: 60px; }
     footer p { margin-bottom: 10px; }
-
+/* 新增：讓新聞條目可以點擊且有懸停變色效果 */
+    .news-link { display: flex; flex-direction: column; text-decoration: none; color: inherit; width: 100%; transition: color 0.3s ease; }
+    .news-link:hover { color: var(--accent-color); }
+    .news-link:hover .news-date { color: var(--accent-color); }
     /* ================= 新增：圖文模塊樣式 ================= */
     .info-module { display: flex; align-items: center; gap: 30px; padding: 20px; background-color: #f8f9fa; border-radius: 8px; margin: 40px auto; max-width: 1000px; }
     .image-section img { width: 100%; max-width: 400px; height: auto; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -218,11 +221,34 @@
 <p class="justify-text">
   We are committed to promoting the wisdom pioneered by Taoism, deeply integrating ancient philosophical traditions with modern higher education. Relying on the serene and tranquil environment of the temple, Sanqing Palace not only creates a peaceful haven isolated from the hustle and bustle, but also establishes a systematic and rigorous academic study mechanism to help students comprehend the true essence of "Tao follows nature."
 </p>
-      </div>
-      <div class="card">
+     <div class="card">
         <h3>院務公開 & 最新動態 <span class="en-text">Administration & Latest News</span></h3>
-        <p style="margin-bottom: 20px; color: #555; line-height: 1.8;">點擊下方按鈕進入專區，查看學院最新發佈的各項公告、活動通知與學術動態。</p>
-        <a href="news.html" class="btn btn-outline" style="display: block; text-align: center; margin-top: 20px;">點擊查看全部動態 <span class="en-text" style="color: inherit; display: inline;">(View All News)</span></a>
+        <ul>
+          <li class="news-item">
+            <a href="news.html" class="news-link">
+              <div>2026年度春季開學典禮圓滿舉行 <span class="en-text">Successful Conclusion of 2026 Spring Opening Ceremony</span></div>
+              <span class="news-date">09-01</span>
+            </a>
+          </li>
+          <li class="news-item">
+            <a href="news.html" class="news-link">
+              <div>關於更新秋季作息安排的通知 <span class="en-text">Notice on Updating the Autumn Schedule</span></div>
+              <span class="news-date">08-28</span>
+            </a>
+          </li>
+          <li class="news-item">
+            <a href="news.html" class="news-link">
+              <div>《道藏》文獻數字化工程啟動 <span class="en-text">Initiation of "Daozang" Literature Digitization Project</span></div>
+              <span class="news-date">08-15</span>
+            </a>
+          </li>
+          <li class="news-item">
+            <a href="news.html" class="news-link">
+              <div>教務處：客座教授系列講座預告 <span class="en-text">Academic Affairs: Guest Professor Lecture Series Preview</span></div>
+              <span class="news-date">08-10</span>
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
