@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>《道藏》文獻數字化工程啟動 | 三清宮道教學院</title>
+  <style>
+    :root { --primary-color: #2c3e50; --bg-color: #fcfbf9; --text-main: #333; --accent-color: #4a5d4e; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "PingFang SC", "Microsoft YaHei", serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; }
+    a { text-decoration: none; color: inherit; }
+    header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04); }
+    .logo { display: flex; align-items: center; gap: 15px; color: var(--primary-color); font-size: 1.2rem; font-weight: bold; }
+    .logo-img { height: 40px; }
+    .article-container { max-width: 800px; margin: 40px auto 80px; padding: 40px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .article-title { font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; text-align: center; }
+    .article-meta { text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+    .article-image { width: 100%; height: auto; border-radius: 6px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .article-content p { margin-bottom: 20px; color: #444; font-size: 1.1rem; text-align: justify; }
+    footer { background: var(--primary-color); color: #ccc; text-align: center; padding: 40px 5%; }
+    @media(max-width: 768px) {
+      .article-container { margin: 20px 10px; padding: 20px; }
+      .article-title { font-size: 1.5rem; }
+      .article-content p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="三清宫logo.png" alt="三清宮" class="logo-img">返回學院首頁
+    </a>
+  </header>
+  <main class="article-container">
+    <h1 class="article-title">《道藏》文獻數字化工程啟動</h1>
+    <div class="article-meta">發佈時間：2026年08月15日 | 分類：學術交流</div>
+    <img src="藏经书阁.jpg" alt="藏經書閣" class="article-image">
+    <div class="article-content">
+      <p>為更好地保存與傳承道教經典，本院於今日正式啟動古籍文獻數字化掃描工程。</p>
+      <p>藏經書閣內珍藏的諸多明清時期《道藏》孤本與手抄經卷，將透過高精度的無損掃描技術轉換為數位檔案。此舉不僅能避免實體古籍因頻繁翻閱而受損，更能為海內外的宗教學與歷史學研究者提供更便捷的線上查閱管道。</p>
+      <p>本工程預計將於年底完成首批 500 卷核心經卷的建檔工作，並於明年春季逐步向公眾開放線上檢索系統。</p>
+    </div>
+  </main>
+  <footer>
+    <p>© 1922 三清宮道教學院 · 保留所有權利</p>
+  </footer>
+</body>
+</html>
