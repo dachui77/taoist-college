@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>關於更新秋季作息安排的通知 | 三清宮道教學院</title>
+  <style>
+    :root { --primary-color: #2c3e50; --bg-color: #fcfbf9; --text-main: #333; --accent-color: #4a5d4e; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "PingFang SC", "Microsoft YaHei", serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; }
+    a { text-decoration: none; color: inherit; }
+    header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04); }
+    .logo { display: flex; align-items: center; gap: 15px; color: var(--primary-color); font-size: 1.2rem; font-weight: bold; }
+    .logo-img { height: 40px; }
+    .article-container { max-width: 800px; margin: 40px auto 80px; padding: 40px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .article-title { font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; text-align: center; }
+    .article-meta { text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+    .article-image { width: 100%; height: auto; border-radius: 6px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .article-content p { margin-bottom: 20px; color: #444; font-size: 1.1rem; text-align: justify; }
+    footer { background: var(--primary-color); color: #ccc; text-align: center; padding: 40px 5%; }
+    @media(max-width: 768px) {
+      .article-container { margin: 20px 10px; padding: 20px; }
+      .article-title { font-size: 1.5rem; }
+      .article-content p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="三清宫logo.png" alt="三清宮" class="logo-img">返回學院首頁
+    </a>
+  </header>
+  <main class="article-container">
+    <h1 class="article-title">關於更新秋季作息安排的通知</h1>
+    <div class="article-meta">發佈時間：2026年08月28日 | 分類：院務公開</div>
+    <img src="静修精舍.jpg" alt="靜修精舍" class="article-image">
+    <div class="article-content">
+      <p>各位學子與同修：</p>
+      <p>因應季節更替與日照時間變化，為順應自然之道、調和陰陽，本院決定自下週一起更新秋季作息安排。</p>
+      <p>晨鐘時間將調整為清晨 5:30，早課時間相應順延。夜間止靜時間提前至晚間 21:30。請各位修學生留意各佈告欄的最新作息表，並依此調整個人起居，切實踐行「日出而作，日入而息」的養生法則。</p>
+    </div>
+  </main>
+  <footer>
+    <p>© 1922 三清宮道教學院 · 保留所有權利</p>
+  </footer>
+</body>
+</html>
