@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>教務處：客座教授系列講座預告 | 三清宮道教學院</title>
+  <style>
+    :root { --primary-color: #2c3e50; --bg-color: #fcfbf9; --text-main: #333; --accent-color: #4a5d4e; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: "PingFang SC", "Microsoft YaHei", serif; background-color: var(--bg-color); color: var(--text-main); line-height: 1.8; }
+    a { text-decoration: none; color: inherit; }
+    header { background: #fff; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04); }
+    .logo { display: flex; align-items: center; gap: 15px; color: var(--primary-color); font-size: 1.2rem; font-weight: bold; }
+    .logo-img { height: 40px; }
+    .article-container { max-width: 800px; margin: 40px auto 80px; padding: 40px; background: #fff; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); }
+    .article-title { font-size: 2rem; color: var(--primary-color); margin-bottom: 15px; text-align: center; }
+    .article-meta { text-align: center; color: #888; font-size: 0.95rem; margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid #eee; }
+    .article-image { width: 100%; height: auto; border-radius: 6px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    .article-content p { margin-bottom: 20px; color: #444; font-size: 1.1rem; text-align: justify; }
+    footer { background: var(--primary-color); color: #ccc; text-align: center; padding: 40px 5%; }
+    @media(max-width: 768px) {
+      .article-container { margin: 20px 10px; padding: 20px; }
+      .article-title { font-size: 1.5rem; }
+      .article-content p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="logo">
+      <img src="三清宫logo.png" alt="三清宮" class="logo-img">返回學院首頁
+    </a>
+  </header>
+  <main class="article-container">
+    <h1 class="article-title">教務處：客座教授系列講座預告</h1>
+    <div class="article-meta">發佈時間：2026年08月10日 | 分類：學術與經典</div>
+    <img src="研修功坊2.jpg" alt="研修功坊" class="article-image">
+    <div class="article-content">
+      <p>為深化學術交流，本院教務處將於下個月隆重推出「道法自然與現代科學」客座教授系列講座。</p>
+      <p>我們特別邀請了國內外知名高校的宗教學系及哲學系教授，針對《道德經》的當代詮釋、魏晉玄學的倫理觀念，以及傳統道醫與現代生命科學的對話等主題進行深入探討。</p>
+      <p>講座將於每週六下午在研修功坊舉行。歡迎所有在校學子及對道家文化有興趣的社會人士報名旁聽。詳細的講者名單與場次表，將於近日於學院佈告欄及網站更新，敬請期待。</p>
+    </div>
+  </main>
+  <footer>
+    <p>© 1922 三清宮道教學院 · 保留所有權利</p>
+  </footer>
+</body>
+</html>
