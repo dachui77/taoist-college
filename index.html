@@ -33,7 +33,8 @@
       font-weight: normal;
       line-height: 1.4;
     }
-/* 全局水印樣式 */
+    
+    /* 全局水印樣式 */
     body::after {
       content: "";
       position: fixed;
@@ -41,14 +42,15 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-image: url('山水胜境.jpg'); /* 請確保檔名與實際上傳的一致 */
-      background-repeat: no-repeat; /* 取消平鋪 */
-      background-size: 100% 100%; /* 讓單張圖片等比例放大，充滿整個螢幕 */
-      background-position: center; /* 圖片居中對齊 */
-      opacity: 0.08; /* 水印透明度 */
+      background-image: url('山水胜境.jpg'); 
+      background-repeat: no-repeat; 
+      background-size: 100% 100%; 
+      background-position: center; 
+      opacity: 0.08; 
       z-index: 9999; 
-      pointer-events: none; /* 確保不會阻擋點擊 */
+      pointer-events: none; 
     }
+    
     /* 導航欄樣式 */
     header {
       position: sticky; top: 0; 
@@ -63,22 +65,13 @@
       gap: 15px; 
       color: var(--primary-color);
     }
-    /* 专门控制中文标题：加大字号，拉开字间距 */
-   /* .logo > div {
-      font-size: 2.2rem; 
-      font-weight: bold;
-      letter-spacing: 7px; 
-      line-height: 1.1;
-    }   为了将标题文字由左对齐变成居中对其*/
-    /* 控制中文標題與英文標識：改為居中對齊 */
     .logo > div {
       font-size: 2.2rem; 
       font-weight: bold;
       letter-spacing: 7px; 
       line-height: 1.1;
-      text-align: center; /* 將文字改為居中對齊 */
+      text-align: center; 
     }
-    /* 专门控制英文标识：字间距归零，调整比例完美对齐中文 */
     .logo .en-text {
       letter-spacing: 0px; 
       font-size: 0.6em !important; 
@@ -144,40 +137,40 @@
     footer { background: var(--primary-color); color: #ccc; text-align: center; padding: 40px 5%; margin-top: 60px; }
     footer p { margin-bottom: 10px; }
 
-    /* 響應式 */
-   /* @media(max-width: 768px) {
-      header { flex-direction: column; padding: 15px 20px; gap: 15px; }
-      .nav-links { width: 100%; justify-content: center; gap: 20px; flex-wrap: wrap; }
-      .grid-2 { grid-template-columns: 1fr; }
-      .hero h1 { font-size: 2rem; }
-    } */
-    /* ================= 響應式手機適配 ================= new  15:49 add*/
+    /* ================= 新增：圖文模塊樣式 ================= */
+    .info-module { display: flex; align-items: center; gap: 30px; padding: 20px; background-color: #f8f9fa; border-radius: 8px; margin: 40px auto; max-width: 1000px; }
+    .image-section img { width: 100%; max-width: 400px; height: auto; border-radius: 6px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .text-section { flex: 1; }
+    .text-section h3 { margin-top: 0; font-size: 24px; color: var(--primary-color); }
+    .text-section p { line-height: 1.6; color: #555; }
+
+    /* ================= 響應式手機適配 ================= */
     @media(max-width: 768px) {
-      /* 導航與 Logo 適配：改為上下居中排列，縮小尺寸 */
+      /* 導航與 Logo 適配 */
       header { flex-direction: column; padding: 15px 10px; gap: 15px; text-align: center; }
-     /* .logo { flex-direction: column; gap: 8px; }
-      .logo-img { height: 60px; } 
-      .logo > div { font-size: 1.5rem; letter-spacing: 2px; line-height: 1.3; } */
-      /*覆盖上方代码，使logo与文字同行*/
       .logo { flex-direction: row; justify-content: center; gap: 10px; }
-      .logo-img { height: 45px; } /* 縮小圖片以適應單行顯示 */
+      .logo-img { height: 45px; } 
       .logo > div { font-size: 1.3rem; letter-spacing: 2px; line-height: 1.2; text-align: center; }
-      /* 菜單鏈接適配：換行顯示，隱藏過大的按鈕 */
+      
+      /* 菜單鏈接適配 */
       .nav-links { width: 100%; justify-content: center; gap: 15px; flex-wrap: wrap; }
       .nav-links a { font-size: 1rem; }
       .nav-links a.nav-btn { display: none; } 
 
-      /* 版塊間距與標題適配：縮小整體留白與字號 */
+      /* 版塊間距與標題適配 */
       section { padding: 50px 5%; }
       .section-title { font-size: 1.8rem; margin-bottom: 30px; }
-      .grid-2 { grid-template-columns: 1fr; gap: 25px; } /* 雙列變單列 */
+      .grid-2 { grid-template-columns: 1fr; gap: 25px; } 
 
-      /* 首屏視覺適配：高度自適應，按鈕變為上下滿寬排列 */
+      /* 首屏視覺適配 */
       .hero { height: auto; padding: 120px 5% 80px; }
       .hero h1 { font-size: 1.8rem; letter-spacing: 2px; }
       .hero p { font-size: 1.05rem; margin-bottom: 30px; }
       .btn-group { flex-direction: column; width: 100%; gap: 15px; }
       .btn { width: 100%; padding: 12px 20px; }
+      
+      /* 新增：圖文模塊手機版適配 */
+      .info-module { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
@@ -248,6 +241,19 @@
             <span class="news-date">08-10</span>
           </li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 新增：圖文介紹模塊 ================= -->
+  <section id="new-info">
+    <div class="info-module">
+      <div class="image-section">
+        <img src="山水胜境.jpg" alt="山水勝境">
+      </div>
+      <div class="text-section">
+        <h3>山水勝境介紹</h3>
+        <p>這裡填寫您的詳細介紹文字內容。您可以自由修改這裡的文字，左側的圖片已經為您設定為專案中的「山水胜境.jpg」圖片檔案。此版塊具備響應式設計，手機瀏覽時會自動變為上下排列。</p>
       </div>
     </div>
   </section>
