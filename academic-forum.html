@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學術交流中心 | 三清宮道教學院</title>
+    <style>
+        /* 基礎重置與字體設定，延續您主站的風格 */
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans TC", sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        /* 導航欄樣式 */
+        header {
+            background-color: #fff;
+            padding: 20px 50px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        /* 討論區主體容器 */
+        .forum-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+        .forum-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .forum-header h1 {
+            font-size: 32px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .forum-header p {
+            color: #7f8c8d;
+            font-size: 16px;
+        }
+
+        /* 頁腳樣式 */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #999;
+            font-size: 14px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頂部導航欄 -->
+    <header>
+        <a href="index.html" class="logo">三清宮道教學院</a>
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="index.html#about">學院概況</a>
+            <a href="index.html#programs">招生與修學</a>
+            <a href="academic-forum.html" class="active">學術交流</a>
+        </nav>
+    </header>
+
+    <!-- 討論區主體 -->
+    <div class="forum-container">
+        <div class="forum-header">
+            <h1>學術交流中心 (Academic Exchange)</h1>
+            <p>融匯道家深邃智慧，探討經典義理與現代哲學。歡迎在此發布您的見解與疑問。</p>
+        </div>
+
+        <!-- ========================================== -->
+        <!-- Giscus 評論系統代碼 (已配置為您的專屬論壇) -->
+        <!-- ========================================== -->
+        <script src="https://giscus.app/client.js"
+                data-repo="dachui77/taoist-college-forum"
+                data-repo-id="R_kgDOUc39DQ"
+                data-category="Announcements"
+                data-category-id="DIC_kwDOUc39Dc4DFtOr"
+                data-mapping="pathname"
+                data-strict="0"
+                data-reactions-enabled="1"
+                data-emit-metadata="0"
+                data-input-position="bottom"
+                data-theme="preferred_color_scheme"
+                data-lang="zh-CN"
+                crossorigin="anonymous"
+                async>
+        </script>
+        <!-- ========================================== -->
+
+    </div>
+
+    <!-- 頁腳 -->
+    <footer>
+        © 1922 - 2026 三清宮道教學院 · 保留所有權利
+    </footer>
+
+</body>
+</html>
