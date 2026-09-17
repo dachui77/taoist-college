@@ -64,6 +64,25 @@
             font-size: 16px;
         }
 
+        /* 留言規則提示條 */
+        .forum-notice {
+            background: #f4f3ef;
+            border-left: 4px solid #2c3e50;
+            border-radius: 4px;
+            padding: 16px 20px;
+            margin-bottom: 30px;
+            font-size: 14px;
+            line-height: 1.9;
+            color: #555;
+        }
+        .forum-notice strong {
+            color: #2c3e50;
+        }
+        .forum-notice ul {
+            margin: 8px 0 0;
+            padding-left: 20px;
+        }
+
         /* 頁腳樣式 */
         footer {
             text-align: center;
@@ -72,7 +91,30 @@
             font-size: 14px;
             margin-top: 50px;
         }
+
+        /* 行動裝置適配 */
+        @media (max-width: 768px) {
+            header {
+                padding: 16px 20px;
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav a {
+                margin: 0 10px;
+                font-size: 14px;
+            }
+            .forum-container {
+                margin: 20px 12px;
+                padding: 24px 18px;
+            }
+            .forum-header h1 {
+                font-size: 24px;
+            }
+        }
     </style>
+
+    <!-- Waline 評論系統樣式 -->
+    <link rel="stylesheet" href="waline/waline.css" />
 </head>
 <body>
 
@@ -94,23 +136,40 @@
             <p>融匯道家深邃智慧，探討經典義理與現代哲學。歡迎在此發布您的見解與疑問。</p>
         </div>
 
+        <!-- 留言規則說明 -->
+        <div class="forum-notice">
+            <strong>留言須知</strong>
+            <ul>
+                <li>無需註冊帳號，<strong>可直接匿名留言</strong>（暱稱可留空，將顯示為「匿名」）。</li>
+                <li>為維護交流品質，所有留言<strong>需經管理員審核通過後才會公開顯示</strong>。</li>
+                <li>請勿發布涉及政治敏感、商業廣告或人身攻擊之內容。</li>
+            </ul>
+        </div>
+
         <!-- ========================================== -->
-        <!-- Giscus 評論系統代碼 (已配置為您的專屬論壇) -->
+        <!-- Waline 評論系統（支援匿名留言 + 後台審核） -->
         <!-- ========================================== -->
-        <script src="https://giscus.app/client.js"
-                data-repo="dachui77/taoist-college-forum"
-                data-repo-id="R_kgDOUc39DQ"
-                data-category="Announcements"
-                data-category-id="DIC_kwDOUc39Dc4DFtOr"
-                data-mapping="pathname"
-                data-strict="0"
-                data-reactions-enabled="1"
-                data-emit-metadata="0"
-                data-input-position="bottom"
-                data-theme="preferred_color_scheme"
-                data-lang="zh-CN"
-                crossorigin="anonymous"
-                async>
+        <div id="waline"></div>
+        <script type="module">
+            import { init } from './waline/waline.js';
+
+            init({
+                el: '#waline',
+                // Waline 服務端位址，部署後填入
+                serverURL: 'https://taoist-college-comments.vercel.app',
+                lang: 'zh-TW',
+                // 匿名留言：不強制登入，暱稱可留空
+                login: 'disable',
+                meta: ['nick', 'mail'],
+                requiredMeta: [],
+                locale: {
+                    placeholder: '歡迎留下您的見解……（可匿名，暱稱留空即可；留言需經審核後顯示）',
+                },
+                imageUploader: false,
+                search: false,
+                reaction: false,
+                dark: 'auto',
+            });
         </script>
         <!-- ========================================== -->
 
